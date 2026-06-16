@@ -1,0 +1,33 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace"
+    },
+    "list": [
+      {
+        "id": "default",
+        "name": "Podling",
+        "workspace": "~/.openclaw/workspace",
+        "identity": {
+          "name": "Podling"
+        }
+      }
+    ]
+  },
+  "skills": {
+    "allowBundled": [
+      "github",
+      "gh-issues",
+      "coding-agent",
+      "skill-creator",
+      "clawhub",
+      "mcporter",
+      "summarize",
+      "healthcheck",
+      "session-logs",
+      "model-usage",
+      "diagram-maker",
+      "tmux"
+    ]
+  }
+}
