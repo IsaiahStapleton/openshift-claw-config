@@ -5,9 +5,9 @@ cluster health, and git push verification in a single pass.
 
 ## Memory Promotion
 
-Scan today's `memory/daily-notes/YYYY-MM-DD.md` for entries that have not
-been promoted to persistent memory. If any stable, useful facts are missing
-from the relevant file, promote them now:
+Scan today's daily notes across all agents (`memory/daily-notes/*/YYYY-MM-DD.md`)
+for entries that have not been promoted to persistent memory. If any stable,
+useful facts are missing from the relevant file, promote them now:
 
 | Daily note content | Promote to |
 |---|---|

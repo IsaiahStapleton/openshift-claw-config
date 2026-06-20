@@ -26,8 +26,8 @@ Do not manually re-read startup files unless:
 
 You wake up fresh each session. These files are your continuity:
 
-- **Daily notes:** `memory/daily-notes/YYYY-MM-DD.md` (create dir if needed)
-  raw logs of what happened
+- **Daily notes:** `memory/daily-notes/<agent>/YYYY-MM-DD.md` (create dir if needed)
+  raw logs of what happened; each agent writes to its own subdirectory
 - **Long-term:** `MEMORY.md` — your curated memories, like a human's
   long-term memory
 
@@ -48,7 +48,7 @@ Capture what matters. Decisions, context, things to remember.
 - "Mental notes" don't survive session restarts. Files do.
 - Before writing memory files, read them first; write only concrete
   updates, never empty placeholders.
-- When someone says "remember this" → update `memory/daily-notes/YYYY-MM-DD.md`
+- When someone says "remember this" → update `memory/daily-notes/<agent>/YYYY-MM-DD.md`
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the
   relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
