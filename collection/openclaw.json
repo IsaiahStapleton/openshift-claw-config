@@ -1,7 +1,45 @@
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.openclaw/workspace"
+      "workspace": "~/.openclaw/workspace",
+      "memorySearch": {
+        "enabled": false
+      },
+      "model": {
+        "fallbacks": [
+          "anthropic-vertex/claude-opus-4-8",
+          "anthropic-vertex/claude-opus-4-7",
+          "anthropic-vertex/claude-opus-4-6"
+        ],
+        "primary": "anthropic-vertex/claude-sonnet-4-6"
+      },
+      "models": {
+        "anthropic-vertex/claude-opus-4-6": {
+          "alias": "Claude Opus 4.6"
+        },
+        "anthropic-vertex/claude-opus-4-7": {
+          "alias": "Claude Opus 4.7"
+        },
+        "anthropic-vertex/claude-opus-4-8": {
+          "alias": "Claude Opus 4.8"
+        },
+        "anthropic-vertex/claude-sonnet-4-6": {
+          "alias": "Claude Sonnet 4.6"
+        }
+      },
+      "heartbeat": {
+        "every": "24h",
+        "model": "anthropic-vertex/claude-sonnet-4-6",
+        "target": "none",
+        "lightContext": true,
+        "skipWhenBusy": true,
+        "timeoutSeconds": 180,
+        "activeHours": {
+          "start": "22:55",
+          "end": "23:30",
+          "timezone": "America/New_York"
+        }
+      }
     },
     "list": [
       {
@@ -28,6 +66,223 @@
       "model-usage",
       "diagram-maker",
       "tmux"
+    ],
+    "entries": {
+      "1password": {
+        "enabled": false
+      },
+      "apple-notes": {
+        "enabled": false
+      },
+      "apple-reminders": {
+        "enabled": false
+      },
+      "bear-notes": {
+        "enabled": false
+      },
+      "blogwatcher": {
+        "enabled": false
+      },
+      "blucli": {
+        "enabled": false
+      },
+      "camsnap": {
+        "enabled": false
+      },
+      "canvas": {
+        "enabled": false
+      },
+      "clawhub": {
+        "enabled": false
+      },
+      "coding-agent": {
+        "enabled": false
+      },
+      "diagram-maker": {
+        "enabled": false
+      },
+      "discord": {
+        "enabled": false
+      },
+      "eightctl": {
+        "enabled": false
+      },
+      "gemini": {
+        "enabled": false
+      },
+      "gh-issues": {
+        "enabled": false
+      },
+      "gifgrep": {
+        "enabled": false
+      },
+      "github": {
+        "enabled": false
+      },
+      "gog": {
+        "enabled": false
+      },
+      "goplaces": {
+        "enabled": false
+      },
+      "healthcheck": {
+        "enabled": false
+      },
+      "himalaya": {
+        "enabled": false
+      },
+      "imsg": {
+        "enabled": false
+      },
+      "mcporter": {
+        "enabled": false
+      },
+      "meme-maker": {
+        "enabled": false
+      },
+      "model-usage": {
+        "enabled": false
+      },
+      "nano-pdf": {
+        "enabled": false
+      },
+      "node-connect": {
+        "enabled": false
+      },
+      "node-inspect-debugger": {
+        "enabled": false
+      },
+      "notion": {
+        "enabled": false
+      },
+      "obsidian": {
+        "enabled": false
+      },
+      "openai-whisper": {
+        "enabled": false
+      },
+      "openai-whisper-api": {
+        "enabled": false
+      },
+      "openhue": {
+        "enabled": false
+      },
+      "oracle": {
+        "enabled": false
+      },
+      "ordercli": {
+        "enabled": false
+      },
+      "peekaboo": {
+        "enabled": false
+      },
+      "python-debugpy": {
+        "enabled": false
+      },
+      "sag": {
+        "enabled": false
+      },
+      "session-logs": {
+        "enabled": false
+      },
+      "sherpa-onnx-tts": {
+        "enabled": false
+      },
+      "skill-creator": {
+        "enabled": false
+      },
+      "slack": {
+        "enabled": false
+      },
+      "songsee": {
+        "enabled": false
+      },
+      "sonoscli": {
+        "enabled": false
+      },
+      "spike": {
+        "enabled": false
+      },
+      "spotify-player": {
+        "enabled": false
+      },
+      "summarize": {
+        "enabled": false
+      },
+      "taskflow": {
+        "enabled": false
+      },
+      "taskflow-inbox-triage": {
+        "enabled": false
+      },
+      "things-mac": {
+        "enabled": false
+      },
+      "tmux": {
+        "enabled": false
+      },
+      "trello": {
+        "enabled": false
+      },
+      "video-frames": {
+        "enabled": false
+      },
+      "voice-call": {
+        "enabled": false
+      },
+      "wacli": {
+        "enabled": false
+      },
+      "weather": {
+        "enabled": false
+      },
+      "xurl": {
+        "enabled": false
+      }
+    }
+  },
+  "gateway": {
+    "auth": {
+      "mode": "token"
+    },
+    "bind": "lan",
+    "controlUi": {
+      "allowedOrigins": [
+        "https://podling-isaiah-claw.apps.claws.bxz4.p1.openshiftapps.com"
+      ],
+      "dangerouslyDisableDeviceAuth": true,
+      "enabled": true
+    },
+    "mode": "local",
+    "port": 18789,
+    "trustedProxies": [
+      "10.0.0.0/8",
+      "172.16.0.0/12"
     ]
+  },
+  "models": {
+    "providers": {
+      "anthropic-vertex": {
+        "api": "anthropic-messages",
+        "apiKey": "gcp-vertex-credentials",
+        "baseUrl": "https://aiplatform.googleapis.com",
+        "maxTokens": 128000,
+        "models": []
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "anthropic-vertex": {
+        "enabled": true
+      }
+    }
+  },
+  "update": {
+    "checkOnStart": false
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.6.8",
+    "lastTouchedAt": "2026-06-20T01:05:42.706Z"
   }
 }
