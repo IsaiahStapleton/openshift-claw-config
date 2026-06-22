@@ -39,7 +39,8 @@
           "end": "23:30",
           "timezone": "America/New_York"
         }
-      }
+      },
+      "userTimezone": "America/New_York"
     },
     "list": [
       {
@@ -48,6 +49,23 @@
         "workspace": "~/.openclaw/workspace",
         "identity": {
           "name": "Podling"
+        },
+        "subagents": {
+          "allowAgents": [
+            "default",
+            "meetings"
+          ]
+        }
+      },
+      {
+        "id": "meetings",
+        "name": "Meetings Agent",
+        "model": {
+          "primary": "anthropic-vertex/claude-sonnet-4-6"
+        },
+        "workspace": "~/.openclaw/workspace-meetings",
+        "identity": {
+          "name": "Meetings Agent"
         }
       }
     ]
@@ -189,7 +207,7 @@
         "enabled": false
       },
       "skill-creator": {
-        "enabled": false
+        "enabled": true
       },
       "slack": {
         "enabled": false
@@ -275,6 +293,39 @@
     "entries": {
       "anthropic-vertex": {
         "enabled": true
+      },
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
+      },
+      "memory-wiki": {
+        "enabled": true,
+        "config": {
+          "vaultMode": "bridge",
+          "bridge": {
+            "enabled": true,
+            "readMemoryArtifacts": true,
+            "indexDreamReports": true,
+            "indexDailyNotes": true,
+            "indexMemoryRoot": true,
+            "followMemoryEvents": true
+          },
+          "search": {
+            "backend": "shared",
+            "corpus": "all"
+          },
+          "render": {
+            "preserveHumanBlocks": true,
+            "createBacklinks": true,
+            "createDashboards": true
+          },
+          "context": {
+            "includeCompiledDigestPrompt": false
+          }
+        }
       }
     }
   },
@@ -283,6 +334,17 @@
   },
   "meta": {
     "lastTouchedVersion": "2026.6.8",
-    "lastTouchedAt": "2026-06-20T01:05:42.706Z"
+    "lastTouchedAt": "2026-06-22T00:43:22.351Z"
+  },
+  "tools": {
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "meetings"
+      ]
+    }
   }
 }

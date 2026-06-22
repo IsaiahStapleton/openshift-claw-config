@@ -4,7 +4,7 @@
 - **What to call him:** Isaiah
 - **Role:** Software Engineer at Red Hat
 - **Focus:** OpenClaw on OpenShift — enterprise adoption, deployment patterns, guardrails, observability, documentation, demos, and implementation
-- **Timezone:** (TBD — will update when known)
+- **Timezone:** America/New_York (Eastern Time)
 
 ## Work Style Preferences
 
