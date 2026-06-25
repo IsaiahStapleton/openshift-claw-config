@@ -3,7 +3,8 @@
     "defaults": {
       "workspace": "~/.openclaw/workspace",
       "memorySearch": {
-        "enabled": false
+        "enabled": true,
+        "provider": "openai"
       },
       "model": {
         "fallbacks": [
@@ -290,7 +291,16 @@
     }
   },
   "plugins": {
+    "slots": {
+      "contextEngine": "lossless-claw"
+    },
     "entries": {
+      "lossless-claw": {
+        "enabled": true,
+        "config": {
+          "summaryModel": "openai/gpt-5.4-mini"
+        }
+      },
       "anthropic-vertex": {
         "enabled": true
       },
@@ -305,6 +315,9 @@
         "enabled": true,
         "config": {
           "vaultMode": "bridge",
+          "vault": {
+            "path": "~/.openclaw/workspace/wiki/main"
+          },
           "bridge": {
             "enabled": true,
             "readMemoryArtifacts": true,

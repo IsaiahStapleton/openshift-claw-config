@@ -1,0 +1,6 @@
+*.sqlite*
+lcm.db*
+openclaw-workspace-state.json
+.clawhub/
+.operator/
+wiki/main/.openclaw-wiki/

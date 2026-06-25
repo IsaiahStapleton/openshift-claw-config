@@ -1,57 +1,26 @@
-# Nightly Maintenance
+# Heartbeat Checklist
 
-Runs once daily (late evening ET). Covers memory promotion, reconciliation,
-cluster health, and git push verification in a single pass.
+Keep this small to limit token burn. Reply `HEARTBEAT_OK` when nothing
+needs attention.
 
-## Memory Promotion
+## Memory
 
-Scan today's daily notes across all agents (`memory/daily-notes/*/YYYY-MM-DD.md`)
-for entries that have not been promoted to persistent memory. If any stable,
-useful facts are missing from the relevant file, promote them now:
+Memory promotion is handled automatically by the native dreaming pass: it
+promotes durable facts from daily notes into `MEMORY.md`, and `memory-wiki`
+compiles the knowledge wiki. You do not need to do manual promotion or
+reconciliation here.
 
-| Daily note content | Promote to |
-|---|---|
-| Project decisions, status changes | `memory/projects/<project>.md` |
-| Architecture decisions, tradeoffs | `memory/decisions/` (propose via `memory/proposals/pending/`) |
-| Debugging findings, root causes | `memory/runbooks/*.md` or `memory/notes/debugging-notes.md` |
-| Isaiah preferences, workflow patterns | `memory/isaiah/preferences.md` (propose via `memory/proposals/pending/`) |
-| Work context changes (new projects, priorities) | `memory/isaiah/work-context.md` or `current-focus.md` |
-| New open questions | `memory/notes/open-questions.md` |
-| Answered questions | Check the answer off in `memory/notes/open-questions.md` |
-| Infrastructure facts (new services, endpoints) | Relevant project file |
-| Operator/CR changes | `memory/projects/claw-operator.md` |
+If something important from recent conversation is not yet written down,
+save it to today's daily note (`memory/YYYY-MM-DD.md`).
 
-**Rules:**
-- Only promote **stable facts**, not speculation or in-progress debugging
-- Direct-write for routine updates (daily notes, runbooks, project files, open questions)
-- Propose via `memory/proposals/pending/` for durable cross-agent facts or Isaiah personal context
+## Cluster health (quick)
 
-## Memory Reconciliation
+- Are both pods (podling + proxy) Running and 1/1 ready?
+- Any Warning events in the last 24h?
 
-Review the prior 2-3 daily notes and reconcile `MEMORY.md`:
-
-- Update Active Projects quick links if projects were added/archived
-- Ensure no duplication between MEMORY.md and the detailed files it indexes
-- Remove stale entries that no longer reflect reality
-- Check `review_after` dates on memory files; surface anything overdue to Isaiah
-
-## Cluster Health Check
-
-Quick K8s API check:
-- Are both pods (podling + proxy) Running?
-- Are both deployments 1/1 ready?
-- Any Warning events in the last 24 hours?
-
-If anything looks wrong, mention it. Otherwise stay quiet.
-
-## Git Push Check
-
-- Check if there are uncommitted changes older than 24 hours
-- If the last push failed (check git status for divergence), mention it
-
-If everything is clean, stay quiet.
+Mention anything wrong; otherwise stay quiet.
 
 ## Response
 
 - `HEARTBEAT_OK` when nothing needs attention
-- Mention noteworthy items only (significant project status shifts, overdue reviews, cluster issues, push failures)
+- Mention only noteworthy items (cluster issues, anything urgent)

@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "name": "memory-snapshot",
+    "enabled": true,
+    "schedule": {
+      "kind": "cron",
+      "expr": "0 * * * *",
+      "tz": "America/New_York"
+    },
+    "sessionTarget": "isolated",
+    "wakeMode": "now",
+    "payload": {
+      "kind": "command",
+      "argv": ["sh", "-lc", "sh scripts/commit-memory.sh"],
+      "cwd": "/home/node/.openclaw/workspace"
+    },
+    "delivery": {
+      "mode": "none"
+    }
+  }
+]
